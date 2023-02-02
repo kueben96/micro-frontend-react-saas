@@ -3,6 +3,7 @@ This application is developed based on the instructions of the Udemy Tutorial "M
 Setup Info:
 - NVM node version 16.18.1
 - install vs code drawio extension
+- no use of create-react-app or vue CLI because webpack version has no module federation plugin
 ### Application Overview
 
 1. Marketing App: React
