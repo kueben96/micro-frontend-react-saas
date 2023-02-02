@@ -1,4 +1,8 @@
 This application is developed based on the instructions of the Udemy Tutorial "Microfrontends with React: A Complete Developer's Guide" by  Stephen Grider
+
+Setup Info:
+- NVM node version 16.18.1
+- install vs code drawio extension
 ### Application Overview
 
 1. Marketing App: React
