@@ -46,3 +46,18 @@ Setup Info:
 
 - **mount function ** : simple function, that takes in a reference to an html component, generic function to assure zero coupling between container and child projects
 - useRef: to create a reference to an html element. Provide the refrence to the mount function
+
+### Deployment
+
+- want to deploy each micro FE independently (including the container)
+- location of child app remoteEntry.js files must be known at build time
+- Many front-end deployment solutions assume you're deploying a single project - we need something that candle multiple different ones
+- probably need a CI/CD pipeline of some sort
+- At present, the remoteEntry.js file name is fixed! Need to think about caching issues
+
+#### Workflow for Deploying Container
+- Whenever code is pushed to master/main branch and this commit contains a change to the 'container' folder- These commands will be executed in a VM hosted by Github
+1. Change into container folder
+2. Install dependencies
+3. Create a production build using webpack
+4. Upload the result to AWS S3
