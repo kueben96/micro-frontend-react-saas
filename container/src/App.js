@@ -1,11 +1,14 @@
 import React from 'react'
-import { mount } from 'marketing/MarketingApp'
-
-console.log(mount);
+import MarketingApp from './components/MarketingApp'
 
 const App = () => {
     return (
-        <h1>Hi there from Container</h1>
+        <div>
+            <h1>Hi there from Container</h1>
+            <hr />
+            <MarketingApp />
+        </div>
+
     )
 }
 

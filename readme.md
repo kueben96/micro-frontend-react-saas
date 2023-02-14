@@ -39,4 +39,10 @@ Setup Info:
 
 5. Container should be able to decide to always use the latest version of a micro-frontend or a specific version of a micro-frontend
 - Container will always use the latest version of a child app (doesn't require a redeploy of container)
-- Container can specify exactly what version of a child it wants to use (requires a dedeploy to change)
+- Container can specify exactly what version of a child it wants to use (requires a dedeploy to change) 
+
+
+### Theory:
+
+- **mount function ** : simple function, that takes in a reference to an html component, generic function to assure zero coupling between container and child projects
+- useRef: to create a reference to an html element. Provide the refrence to the mount function
