@@ -198,3 +198,9 @@ eg: arn:aws:s3:::mfe-dashboard/*
 - Click Next: Review
 
 - Click Create user
+
+### Microfrontend-Specific AWS Config
+- Cloudfront doesn't automatically take a look at the changed files in S3 i the files don't have a unique identifier like index.html. The JS files are hashed uniquely, so cloudfront recognizes the change
+- **Manual Cache invalidations: **Use latest version of index.html file
+- Add Invalidation to Cloudfront Distribution: /container/latest/index.html
+- Automatic Cache Invalidation: Add aws command to container.yml
