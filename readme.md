@@ -199,6 +199,13 @@ eg: arn:aws:s3:::mfe-dashboard/*
 
 - Click Create user
 
+#### Add Secrets to Github
+- AWS_ACCESS_KEY_ID
+- AWS_DISTRIBUTION_ID
+- AWS_S3_BUCKET_NAME
+- AWS_SECRET_ACCESS_KEY
+- PRODUCTION_DOMAIN
+
 ### Microfrontend-Specific AWS Config
 - Cloudfront doesn't automatically take a look at the changed files in S3 i the files don't have a unique identifier like index.html. The JS files are hashed uniquely, so cloudfront recognizes the change
 - **Manual Cache invalidations: **Use latest version of index.html file
