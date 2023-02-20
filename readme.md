@@ -236,12 +236,15 @@ eg: arn:aws:s3:::mfe-dashboard/*
 - Users can navigate around to different subapps using routing logic built into the Container
 - Users can navigate around **in** a subapp using routing logic built into the subapp itself
 - not all subapps require routing
+- Solution: Both Marketing and Container can have own routing library
 
 ### Req2: Sub-apps might need to add in new pages/routes all the time
 - new routes added to a subapp shouldn't require a redeploy of the container 
+- Solution: Container Router decides based on routes, which MFE App to show and Marketing Router decides based on routes which page to show
 
 ### Req3: We might need to show two or more microfrontends at the same time
 - this  will occur all the time we have some kind of sidebar nav that is built as a separate microfrontend
+- Solution: if route "/" -> Containers Routing will decide which microfrontend to show
 
 ### Req4: We want to use off-the-shelf routing solutions
 - Building a routing library can be hard - we don't want to author a new one
@@ -253,3 +256,12 @@ eg: arn:aws:s3:::mfe-dashboard/*
 ### Req6: If different apps need to communicate information about routing, it should be done in as generic a fashion as possible
 - each app might be using a completely different navigation framework 
 - We might swap out or upgrade navigation libraries all the time - shouldn't require a rewrite of the rest of the app
+
+### History & Router
+- History: Object to get and set the current path the user is visiting
+- Router: Shows different content based on the current path
+  
+  ### History
+  - Browser History: Look at the path portion of the url (everything after the domain) to figure out what the current path is
+  - Hash History
+  - Memory or Abstract History: Keep track of the current path in memory

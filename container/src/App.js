@@ -10,6 +10,7 @@ const App = () => {
     })
     console.log(generateClassName)
     return (
+        // Container routing implemented with Browser History
         <BrowserRouter>
             <StylesProvider generateClassName={generateClassName}>
                 <div>

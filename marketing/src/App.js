@@ -1,17 +1,18 @@
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 import React from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Switch, Route, Router } from 'react-router-dom'
 import Landing from './components/Landing';
 import Pricing from './components/Pricing';
 
-const App = () => {
+const App = ({ history }) => {
 
     const generateClassName = createGenerateClassName({
         productionPrefix: 'ma',
     })
     return (
         <div>
-            <BrowserRouter>
+            {/* the router object does not have the history by default so we have to provide it */}
+            <Router history={history}>
                 <StylesProvider generateClassName={generateClassName}>
 
                     <Switch>
@@ -20,7 +21,7 @@ const App = () => {
                     </Switch>
 
                 </StylesProvider>
-            </BrowserRouter>
+            </Router>
         </div>
     )
 }
