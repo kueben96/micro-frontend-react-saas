@@ -229,3 +229,27 @@ eg: arn:aws:s3:::mfe-dashboard/*
 ### Solution:
 - generate random class names that would not collide with each other
 - StylesProvider Component -> createGenerateClassName --> add custom class prefix for each micro fe application, e.g. 'ma' for marketing application
+
+## Implementing Multi-Thier Navigation
+
+### Req1: Both Container + indicid. SubApps need routing features
+- Users can navigate around to different subapps using routing logic built into the Container
+- Users can navigate around **in** a subapp using routing logic built into the subapp itself
+- not all subapps require routing
+
+### Req2: Sub-apps might need to add in new pages/routes all the time
+- new routes added to a subapp shouldn't require a redeploy of the container 
+
+### Req3: We might need to show two or more microfrontends at the same time
+- this  will occur all the time we have some kind of sidebar nav that is built as a separate microfrontend
+
+### Req4: We want to use off-the-shelf routing solutions
+- Building a routing library can be hard - we don't want to author a new one
+- Some amount of custom coding is ok
+
+### Req5: We need navigation features for sub-apps in both hosted mode and in isolation
+- Developing for each environment should be easy - a developer should immedieately be able to see what path they are visiting
+
+### Req6: If different apps need to communicate information about routing, it should be done in as generic a fashion as possible
+- each app might be using a completely different navigation framework 
+- We might swap out or upgrade navigation libraries all the time - shouldn't require a rewrite of the rest of the app
