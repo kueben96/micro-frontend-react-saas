@@ -10,7 +10,7 @@ const MarketingApp = () => {
     const history = useHistory();
 
     useEffect(() => {
-        mount(ref.current, {
+        const { onParentNavigate } = mount(ref.current, {
             // desctructre location object and rename to nextPathname
             onNavigate: ({ pathname: nextPathname }) => {
                 // console.log(history.location)
@@ -22,7 +22,9 @@ const MarketingApp = () => {
                 }
             }
         })
-    });
+        history.listen(onParentNavigate);
+        // add empty dependency array to only call this function when the marketing object is first rendered to the screen
+    }, []);
 
     return (
         <div ref={ref}></div>

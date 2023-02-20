@@ -17,6 +17,15 @@ const mount = (el, { onNavigate }) => {
         // render this h1 to el
         el
     )
+    // for container to child communication, return object of functions when calling mount
+    return {
+        onParentNavigate({ pathname: nextPathname }) {
+            // history.push(location.pathname)
+            const { pathname } = history.location;
+            if (pathname !== nextPathname)
+                history.push(nextPathname)
+        }
+    }
 }
 // if in dev or isolation -> call mount immediately 
 
