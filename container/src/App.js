@@ -1,5 +1,5 @@
 import React from 'react'
-import { StylesProvider, createGenerateClassName } from '@material-ui/core'
+import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 import { BrowserRouter } from 'react-router-dom'
 import MarketingApp from './components/MarketingApp'
 import Header from './components/Header'
