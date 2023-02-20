@@ -211,3 +211,21 @@ eg: arn:aws:s3:::mfe-dashboard/*
 - **Manual Cache invalidations: **Use latest version of index.html file
 - Add Invalidation to Cloudfront Distribution: /container/latest/index.html
 - Automatic Cache Invalidation: Add aws command to container.yml
+
+## CSS Scoping Solutions
+1. Custom CSS you are writing for your project
+   - use css-in-js library
+   - use vue's built-in component style scoping
+   - use angular's built-in component style scoping
+   - "namespace" all your CSS
+2. CSS Coming from a component library or CSS library (bootstrap)
+   - Use a component library that does css-in-js
+   - Manually build the css library and apply namespacing techniques to it
+
+### Problem: 
+- automatically generated class names in production can collide as they will have the same identifier
+- example: landing page of marketing and header of container both receive class name "jss1" -> so the first jss1 class gets overwritten by the second one
+
+### Solution:
+- generate random class names that would not collide with each other
+- StylesProvider Component -> createGenerateClassName --> add custom class prefix for each micro fe application, e.g. 'ma' for marketing application
