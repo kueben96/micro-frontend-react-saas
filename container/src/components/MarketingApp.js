@@ -13,7 +13,13 @@ const MarketingApp = () => {
         mount(ref.current, {
             // desctructre location object and rename to nextPathname
             onNavigate: ({ pathname: nextPathname }) => {
-                history.push(nextPathname)
+                // console.log(history.location)
+                // console.log(location);
+                const { pathname } = history.location;
+
+                if (pathname !== nextPathname) {
+                    history.push(nextPathname)
+                }
             }
         })
     });

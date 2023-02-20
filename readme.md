@@ -265,3 +265,8 @@ eg: arn:aws:s3:::mfe-dashboard/*
   - Browser History: Look at the path portion of the url (everything after the domain) to figure out what the current path is
   - Hash History
   - Memory or Abstract History: Keep track of the current path in memory
+  
+
+  #### Hints:
+
+  - For development in isolation mode, you can use browser router and replace it with memory history later when running with container app
