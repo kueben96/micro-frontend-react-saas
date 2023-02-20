@@ -8,12 +8,12 @@ const App = () => {
     const generateClassName = createGenerateClassName({
         productionPrefix: 'co',
     })
+    console.log(generateClassName)
     return (
         <BrowserRouter>
             <StylesProvider generateClassName={generateClassName}>
                 <div>
                     <Header />
-
                     <MarketingApp />
                 </div>
             </StylesProvider>
