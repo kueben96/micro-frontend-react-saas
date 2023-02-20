@@ -1,13 +1,21 @@
 import React, { useRef, useEffect } from 'react'
 import { mount } from 'marketing/MarketingApp'
+import { useHistory } from 'react-router-dom';
 
 const MarketingApp = () => {
 
     // create reference to an html element
     const ref = useRef(null);
+    // copy of the browser
+    const history = useHistory();
 
     useEffect(() => {
-        mount(ref.current)
+        mount(ref.current, {
+            // desctructre location object and rename to nextPathname
+            onNavigate: ({ pathname: nextPathname }) => {
+                history.push(nextPathname)
+            }
+        })
     });
 
     return (
