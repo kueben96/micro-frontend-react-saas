@@ -7,6 +7,10 @@ const packageJson = require('../package.json')
 
 const devConfig = {
     mode: 'development',
+    output: {
+        // set whole path for nested paths
+        publicPath: 'http://localhost:8080/'
+    },
     entry: './src/index.js',
     devServer: {
         port: 8080,

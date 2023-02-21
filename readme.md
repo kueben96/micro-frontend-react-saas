@@ -267,3 +267,5 @@ eg: arn:aws:s3:::mfe-dashboard/*
   - Memory or Abstract History: Keep track of the current path in memory
   - **Hint:** In Isolation mode marketing, create browser history, for prod & container mode, use memory history
   
+
+  ## Authentication
