@@ -4,14 +4,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/Header'
 
 const App = () => {
-
+    // only load the JS files when they are needed
     const MarketingLazy = lazy(() => import('./components/MarketingApp'))
     const AuthLazy = lazy(() => import('./components/AuthApp'))
 
     const generateClassName = createGenerateClassName({
         productionPrefix: 'co',
     })
-    console.log(generateClassName)
     return (
         // Container routing implemented with Browser History
         <BrowserRouter>
