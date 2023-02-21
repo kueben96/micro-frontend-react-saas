@@ -5,7 +5,7 @@ module.exports = {
         filename: '[name].[contenthash].js'
     },
     resolve: {
-        extensions: ['js', '.vue']
+        extensions: ['.js', '.vue']
     },
     module: {
         rules: [
@@ -23,7 +23,7 @@ module.exports = {
             },
             {
                 test: /\.scss|\.css$/,
-                use: ['vue-style-loader'],
+                use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'],
             },
             // loader: tell webpack to process different files as we import them to the project
             {

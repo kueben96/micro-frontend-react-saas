@@ -1,43 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import { createMemoryHistory, createBrowserHistory } from "history";
+import { createApp } from 'vue'
+import Dashboard from './components/Dashboard.vue'
 
-// mount functin to start up the app
 
-const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
-    // if default history given, use it for isolation mode, else use memory history
-    const history = defaultHistory || createMemoryHistory({
-        initialEntries: [initialPath],
-    });
+const mount = (el) => {
+    const app = createApp(Dashboard);
+    // this mount function is a vue-based function
+    app.mount(el);
 
-    if (onNavigate) {
-        history.listen(onNavigate);
-    }
 
-    ReactDOM.render(
-        <App onSignIn={onSignIn} history={history}></App>,
-        // render this h1 to el
-        el
-    )
-    // for container to child communication, return object of functions when calling mount
-    return {
-        onParentNavigate({ pathname: nextPathname }) {
-            // history.push(location.pathname)
-            const { pathname } = history.location;
-            console.log(nextPathname)
-            if (pathname !== nextPathname)
-                history.push(nextPathname)
-        }
-    }
 }
 // if in dev or isolation -> call mount immediately 
 
 if (process.env.NODE_ENV == 'development') {
-    const devRoot = document.querySelector('#_auth-dev-root');
+    const devRoot = document.querySelector('#_dashboard-dev-root');
 
     if (devRoot) {
-        mount(devRoot, { defaultHistory: createBrowserHistory() });
+        mount(devRoot);
     }
 }
 
