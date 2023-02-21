@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { mount } from 'auth/AuthApp'
 import { useHistory } from 'react-router-dom';
 
-const AuthApp = () => {
+const AuthApp = ({ onSignIn }) => {
 
     // create reference to an html element
     const ref = useRef(null);
@@ -22,10 +22,7 @@ const AuthApp = () => {
                     history.push(nextPathname)
                 }
             },
-            onSignIn: () => {
-                console.log('user signed in')
-            }
-
+            onSignIn,
         })
         history.listen(onParentNavigate);
         // add empty dependency array to only call this function when the marketing object is first rendered to the screen
