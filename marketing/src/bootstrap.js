@@ -5,9 +5,11 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 
 // mount functin to start up the app
 
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     // if default history given, use it for isolation mode, else use memory history
-    const history = defaultHistory || createMemoryHistory();
+    const history = defaultHistory || createMemoryHistory({
+        initialEntries: [initialPath]
+    });
 
     if (onNavigate) {
         history.listen(onNavigate);

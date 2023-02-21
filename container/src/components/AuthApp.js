@@ -11,6 +11,7 @@ const AuthApp = () => {
 
     useEffect(() => {
         const { onParentNavigate } = mount(ref.current, {
+            initialPath: history.location.pathname,
             // desctructre location object and rename to nextPathname
             onNavigate: ({ pathname: nextPathname }) => {
                 // console.log(history.location)
