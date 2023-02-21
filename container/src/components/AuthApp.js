@@ -21,7 +21,11 @@ const AuthApp = () => {
                 if (pathname !== nextPathname) {
                     history.push(nextPathname)
                 }
+            },
+            onSignIn: () => {
+                console.log('user signed in')
             }
+
         })
         history.listen(onParentNavigate);
         // add empty dependency array to only call this function when the marketing object is first rendered to the screen

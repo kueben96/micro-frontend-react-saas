@@ -269,3 +269,8 @@ eg: arn:aws:s3:::mfe-dashboard/*
   
 
   ## Authentication
+  - Auth app is for signing in/up users
+  - Auth app is not for enforcing permissions, allowingaccess to certain routes, or figuring out if user is signed in
+  - Two approaches for handling auth
+  - (1): Each app is aware of auth (means a lot of duplication of auth code)
+  - **(2): Centralize auth in container** --> container communicates to each subapp the authentication status

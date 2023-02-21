@@ -1,11 +1,11 @@
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { Switch, Route, Router } from 'react-router-dom'
 import SignIn from './components/Signin'
 import SignUp from './components/Signup'
 
 
-const App = ({ history }) => {
+const App = ({ history, onSignIn }) => {
 
     const generateClassName = createGenerateClassName({
         productionPrefix: 'au',
@@ -17,8 +17,12 @@ const App = ({ history }) => {
                 <StylesProvider generateClassName={generateClassName}>
 
                     <Switch>
-                        <Route path="/auth/signin" component={SignIn}></Route>
-                        <Route path="/auth/signup" component={SignUp}></Route>
+                        <Route path="/auth/signin">
+                            <SignIn onSignIn={onSignIn}></SignIn>
+                        </Route>
+                        <Route path="/auth/signup">
+                            <SignUp onSignIn={onSignIn}></SignUp>
+                        </Route>
                     </Switch>
 
                 </StylesProvider>
