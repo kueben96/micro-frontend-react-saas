@@ -18,14 +18,12 @@ const generateClassName = createGenerateClassName({
 const App = () => {
 
     const [isSignedIn, setIsSignedIn] = useState(false)
-    console.log(isSignedIn)
-    console.log(history)
-
     useEffect(() => {
         if (isSignedIn) {
             history.push('/dashboard')
         }
     }, [isSignedIn]);
+
     return (
         <Router history={history}>
             <StylesProvider generateClassName={generateClassName}>
