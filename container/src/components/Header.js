@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
-  console.log(classes)
+
 
   const onClick = () => {
     if (isSignedIn && onSignOut) {

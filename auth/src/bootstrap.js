@@ -23,9 +23,8 @@ const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
     // for container to child communication, return object of functions when calling mount
     return {
         onParentNavigate({ pathname: nextPathname }) {
-            // history.push(location.pathname)
             const { pathname } = history.location;
-            console.log(nextPathname)
+
             if (pathname !== nextPathname)
                 history.push(nextPathname)
         }

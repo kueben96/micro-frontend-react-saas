@@ -5,23 +5,28 @@ import Progress from './components/Progress'
 import Header from './components/Header'
 import { createBrowserHistory } from 'history'
 
+const history = createBrowserHistory();
+
+// only load the JS files when they are needed
+const MarketingLazy = lazy(() => import('./components/MarketingApp'))
+const AuthLazy = lazy(() => import('./components/AuthApp'))
+const DashboardLazy = lazy(() => import('./components/DashboardApp'))
+
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'co',
+})
 const App = () => {
-    // only load the JS files when they are needed
-    const MarketingLazy = lazy(() => import('./components/MarketingApp'))
-    const AuthLazy = lazy(() => import('./components/AuthApp'))
-    const DashboardLazy = lazy(() => import('./components/DashboardApp'))
-
-    const generateClassName = createGenerateClassName({
-        productionPrefix: 'co',
-    })
-
-    const history = createBrowserHistory();
-
 
     const [isSignedIn, setIsSignedIn] = useState(false)
+    console.log(isSignedIn)
+    console.log(history)
+
+    useEffect(() => {
+        if (isSignedIn) {
+            history.push('/dashboard')
+        }
+    }, [isSignedIn]);
     return (
-
-
         <Router history={history}>
             <StylesProvider generateClassName={generateClassName}>
                 <div>
@@ -31,7 +36,10 @@ const App = () => {
                             <Route path="/auth">
                                 <AuthLazy onSignIn={() => setIsSignedIn(true)}></AuthLazy>
                             </Route>
-                            <Route path="/dashboard" component={DashboardLazy}></Route>
+                            <Route path="/dashboard">
+                                {!isSignedIn && <Redirect to="/" />}
+                                <DashboardLazy></DashboardLazy>
+                            </Route>
                             <Route path="/" component={MarketingLazy}></Route>
                         </Switch>
                     </Suspense>
