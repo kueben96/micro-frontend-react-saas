@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import Dashboard from './components/Dashboard.vue'
 
 
+// dashboard has no navigation inside
 const mount = (el) => {
     const app = createApp(Dashboard);
     // this mount function is a vue-based function
