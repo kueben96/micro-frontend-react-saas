@@ -4,7 +4,7 @@ Setup Info:
 - NVM node version 16.18.1
 - install vs code drawio extension
 - no use of create-react-app or vue CLI because webpack version has no module federation plugin
-### Application Overview
+## Application Overview
 
 1. Marketing App: React
 - Home Page
@@ -20,7 +20,15 @@ Setup Info:
 4. Container App: React
 - Goal: Providing generic interface point so the the sub applications' framework choice is independent
 
-### Requirements
+## Takeaways
+
+- Your requirements drive your architecture
+- Alyways ask yourself "if I have to change this in the future, will I have to change another app?"
+- Everyone will eventually forget React
+- Don't forget to scope your CSS
+- MFE's might cause issues in production that you don't see in dev
+
+## Requirements
 
 1. Zero coupling between child projects
 - No importing of functions/objects/classes/etc
