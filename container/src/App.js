@@ -1,8 +1,9 @@
-import React, { lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense, useState, useEffect } from 'react'
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch, Redirect } from 'react-router-dom'
 import Progress from './components/Progress'
 import Header from './components/Header'
+import { createBrowserHistory } from 'history'
 
 const App = () => {
     // only load the JS files when they are needed
@@ -14,10 +15,14 @@ const App = () => {
         productionPrefix: 'co',
     })
 
+    const history = createBrowserHistory();
+
+
     const [isSignedIn, setIsSignedIn] = useState(false)
     return (
-        // Container routing implemented with Browser History
-        <BrowserRouter>
+
+
+        <Router history={history}>
             <StylesProvider generateClassName={generateClassName}>
                 <div>
                     <Header isSignedIn={isSignedIn} onSignOut={() => setIsSignedIn(false)} />
@@ -32,7 +37,7 @@ const App = () => {
                     </Suspense>
                 </div>
             </StylesProvider>
-        </BrowserRouter>
+        </Router>
     )
 }
 
