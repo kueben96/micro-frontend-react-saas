@@ -22,7 +22,10 @@ const AuthApp = ({ onSignIn }) => {
                     history.push(nextPathname)
                 }
             },
-            onSignIn,
+            onSignIn: () => {
+                onSignIn()
+                console.log('signing in')
+            },
         })
         history.listen(onParentNavigate);
         // add empty dependency array to only call this function when the marketing object is first rendered to the screen
